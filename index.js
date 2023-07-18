@@ -8,6 +8,7 @@ const app = express()
 app.use(express.json())
 
 //hall rough data
+
 const hallstatus = [{
     id: 1,
     roomName: 'Double',
@@ -95,14 +96,14 @@ const hallstatus = [{
 //checking the server
 app.get("/", (req, res) => {
     try {
-        return res.status(200).json({ message:"Server condition would be fine" })
+        return res.status(200).json({ message: "Server condition would be fine" })
     } catch (error) {
         console.log(error)
         return res.status(500).json({ message: "Internal server error" })
 
-        
+
     }
- 
+
 
 })
 
@@ -145,7 +146,7 @@ app.post("/createroom", (req, res) => {
 app.put("/bookingroom/:id", (req, res) => {
     try {
         const { id } = req.params
-        if(id >=7){
+        if (id >= 7) {
             return res.status(400).json({ message: "The room not available" })
         }
 
@@ -259,15 +260,3 @@ app.listen(8000, () => console.log('server running in localhost:8000'))
 
 
 
-
-//  {
-//     "roomName":"Suite",
-//     "numberofSeats":300,
-//    " price":"2000",
-//    " amenities":["partyhall"],
-//     "isBooked":false,
-//    " customerName":"",
-//     "date":"",
-//     "startTime":"",
-//    " endTime":" "
-//    }
